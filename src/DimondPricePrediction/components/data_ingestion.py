@@ -4,13 +4,19 @@ import numpy as np
 from src.DimondPricePrediction.logger import logging
 from src.DimondPricePrediction.exception import customexception
 
+from src.DimondPricePrediction.components.data_transformation import DataTransformationConfig
+from src.DimondPricePrediction.components.data_transformation import DataTransformation
+
+from src.DimondPricePrediction.components.model_trainer import ModelTrainerConfig
+from src.DimondPricePrediction.components.model_trainer import ModelTrainer
+
+
+
 import os
 import sys
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from pathlib import Path
-
-
 
 class DataIngestionConfig:
     raw_data_path:str=os.path.join("artifacts","raw.csv")
@@ -56,9 +62,15 @@ class DataIngestion:
         except Exception as e:
            logging.info("exception during occured at data ingestion stage")
            raise customexception(e,sys)
-        
+    
+
 
 if __name__=="__main__":
     obj=DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data,test_data=obj.initiate_data_ingestion()
 
+    data_transformation=DataTransformation()
+    train_arr,test_arr=data_transformation.initialize_data_transformation(train_data,test_data)
+
+    modeltrainer=ModelTrainer()
+    print(modeltrainer.initate_model_training(train_arr,test_arr))
