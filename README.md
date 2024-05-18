@@ -1,11 +1,11 @@
-# MACHINE LEARNING End-TO-End PROJECT
+# MACHINE LEARNING END-TO-END PROJECT
 
 ## DIAMOND PRICE PREDICTION
 
-#This repository contains an end-to-end machine learning project, deployed using AWS services. The project utilizes various Python libraries and tools to create, train, and deploy a machine learning model for predictive analysis.
+This repository contains an end-to-end machine learning project, deployed using AWS services. The project utilizes various Python libraries and tools to create, train, and deploy a machine learning model for predictive analysis.
 
 ## Overview
-#The primary goal of this project is to build a robust machine learning model and make it accessible through a web interface. The following libraries and frameworks are used in this project:
+The primary goal of this project is to build a robust machine learning model and make it accessible through a web interface. The following libraries and frameworks are used in this project:
 
 * Pandas: For data manipulation and analysis.
 * NumPy: For numerical computations.
